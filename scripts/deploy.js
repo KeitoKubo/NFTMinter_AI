@@ -2,7 +2,7 @@ const hre = require("hardhat");
 const { ethers } = require("hardhat");
 
 async function main() {
-  const NAME = "AI Generated NFT"
+  const NAME = "NFTMinter with AI"
   const SYMBOL = "AINFT"
   const COST = ethers.utils.parseUnits("1", "ether") // 1 ETH
 
