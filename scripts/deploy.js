@@ -1,4 +1,5 @@
 const hre = require("hardhat");
+const { ethers } = require("ethers");
 
 async function main() {
   const NAME = "AI Generated NFT"
