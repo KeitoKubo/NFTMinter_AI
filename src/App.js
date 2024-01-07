@@ -18,9 +18,17 @@ function App() {
   const [provider, setProvider] = useState(null)
   const [account, setAccount] = useState(null)
 
+  const [name, setName] = useState("")
+  const [description, setDescription] = useState("")
+
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     setProvider(provider)
+  }
+
+  const submitHandler = async (event) => {
+    event.preventDefault()
+    console.log("Submitting... " + name + " " + description)
   }
 
   useEffect(() => {
@@ -30,8 +38,18 @@ function App() {
   return (
     <div>
       <Navigation account={account} setAccount={setAccount} />
-      <p>Edit App.js to get started.</p>
-
+      <div className='form'>
+        <form onSubmit={submitHandler}>
+          <input id='nameInput' type="text" placeholder='what do you create?' onChange={(event) => setName(event.target.value)}></input>
+          <input id='descriptionInput' type ="text" placeholder='describe features!' onChange={(event) => setDescription(event.target.value)}></input>
+          <input id='submitBotton' type = "submit" value="Generate & Mint!"></input>
+        </form>
+        <div className='image'>
+          <img src='' alt='AI generated img' />
+        </div>
+      </div>
+      <p>View&nbsp;<a href='' target='_blank' rel='noreferrer'>MetaData</a></p>
+      
     </div>
   );
 }
